@@ -26,6 +26,17 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+gem 'font-awesome-sass', '~> 4.2.0'
+
+group :development, :test do
+  gem 'better_errors'
+  gem 'pry-rails'
+  gem 'binding_of_caller'
+  gem 'dotenv-rails'
+  gem 'bourbon'
+end
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

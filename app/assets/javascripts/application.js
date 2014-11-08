@@ -12,5 +12,20 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
+
+
+$.ajax({
+    type: "GET",
+    dataType: "json",
+    url: "https://congress.api.sunlightfoundation.com/legislators/locate?apikey=c31f9f2742674a9f8ee4e48183d8378e",
+    data: "zip=27701",
+    success: function (json) {
+
+        $("h2").html(json.results[0].first_name + " " + json.results[0].last_name);
+        $(".photo").html('<img src="http://theunitedstates.io/images/congress/225x275/' + json.results[0].bioguide_id + '.jpg"></img>');
+
+        console.log( "JSON Data: " + json.results[0].first_name + " " + json.results[0].last_name );
+    }});
+
