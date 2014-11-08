@@ -50,8 +50,13 @@
     }
 
     h2 {
-      margin-bottom: 0;
+      @include margin(4px null 0 null);
       color: #BD0000;
+    }
+
+    .party {
+      margin-top: 2px;
+      font-size: 14pt;
     }
 
     ul {
@@ -60,11 +65,11 @@
 
     .photo {
       float: left;
-      @include margin(19px 30px null null);
 
       img {
         border-radius: 75px;
         height: 200px;
+        @include margin(10px 45px null 10px);
       }
     }
 
