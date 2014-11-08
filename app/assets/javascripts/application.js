@@ -23,9 +23,37 @@ $.ajax({
     data: "zip=27701",
     success: function (json) {
 
-        $("h2").html(json.results[0].first_name + " " + json.results[0].last_name);
-        $(".photo").html('<img src="http://theunitedstates.io/images/congress/225x275/' + json.results[0].bioguide_id + '.jpg"></img>');
+        var leg = json.results[0];
+        if (leg.title === "Rep") {
+            office = "House Representative"
+        } else if (leg.title === "Sen" && leg.state_rank === "senior") {
+            office = "Senior Senator"
+        } else if (leg.title === "Sen" && leg.state_rank === "junior") {
+            office = "Junior Senator"
+        } else {
+            office = "Delegate"
+        }
 
-        console.log( "JSON Data: " + json.results[0].first_name + " " + json.results[0].last_name );
+        if (leg.party === "R") {
+            party = "Republican"
+        } else if (leg.party === "D") {
+            party = "Democrat"
+        } else {
+            party = "Independent"
+        }
+
+        $("h2").html(leg.first_name + " " + leg.last_name);
+        $(".photo").html('<img src="http://theunitedstates.io/images/congress/225x275/' + leg.bioguide_id + '.jpg"></img>');
+        $("img").error(function () {
+            $(this).unbind("error").attr("src", "http://www.keralabjp.org/images/No_Image.jpg");
+        });
+        $(".twitter_handle").html("<a href='https://twitter.com/intent/user?screen_name=" + leg.twitter_id + "'><i class='fa fa-twitter-square'></i> @" + leg.twitter_id + "</a>");
+        $(".header").html(office);
+        $(".start_date").html(leg.term_start);
+        $(".end_term_date").html(leg.term_end);
+        $(".party").html(party);
+        $(".phone_number").html('<a href="tel:+' + leg.phone + '"><i class="fa fa-phone-square"></i> ' + leg.phone + '</a>');
+        $(".message").attr("href", leg.contact_form);
+
     }});
 

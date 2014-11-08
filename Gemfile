@@ -28,7 +28,7 @@ gem 'spring',        group: :development
 
 
 gem 'geocoder'
-
+gem 'httparty'
 gem 'font-awesome-sass', '~> 4.2.0'
 
 group :development, :test do
