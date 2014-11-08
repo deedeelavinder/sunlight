@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ */
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import "bourbon";
+
+.profile {
+  width: 600px;
+  @include margin(null auto null auto);
+  font-family: $helvetica;
+
+  .header{
+    height: 40px;
+    background-color: #BD0000;
+    color: #FFF;
+    font-size: 25pt;
+    font-weight: 500;
+    padding-left: 15px;
+    border-left: solid 2px #920000;
+    border-top: solid 2px #920000;
+    border-right: solid 1px #000;
+  }
+
+  .content {
+    background-color: #E8DEFF;
+    border: solid 2px #ACA2B9;
+    border-bottom: solid 1px #000;
+    border-right: solid 1px #000;
+    @include padding(null 20px null 20px);
+
+    a {
+      text-decoration: none;
+      color: #BD0000;
+    }
+
+    a:hover {
+      color: #FF0000;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      color: #BD0000;
+    }
+
+    ul {
+      @include margin(5px null 15px null);
+    }
+
+    .photo {
+      float: left;
+      @include margin(19px 30px null null);
+
+      img {
+        border-radius: 75px;
+        height: 200px;
+      }
+    }
+
+    ul {
+      list-style: none;
+
+      li {
+        margin-bottom: 3px;
+      }
+    }
+  }
+}

@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   get 'sessions/show'
+=======
+>>>>>>> 6fb50dd16c8bcaa2bcdb0c09da978df202ab12b2
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+<<<<<<< HEAD
    root 'sessions#show'
+=======
+  root 'sessions#index'
+>>>>>>> 6fb50dd16c8bcaa2bcdb0c09da978df202ab12b2
 
   # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  get 'sessions' => 'sessions#index'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
