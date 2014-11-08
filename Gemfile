@@ -30,13 +30,14 @@ gem 'spring',        group: :development
 gem 'geocoder'
 gem 'httparty'
 gem 'font-awesome-sass', '~> 4.2.0'
+gem 'dotenv-rails'
+gem 'bourbon'
 
 group :development, :test do
   gem 'better_errors'
   gem 'pry-rails'
   gem 'binding_of_caller'
-  gem 'dotenv-rails'
-  gem 'bourbon'
+
 end
 
 

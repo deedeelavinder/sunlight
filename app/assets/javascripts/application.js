@@ -23,7 +23,10 @@ $.ajax({
     data: "zip=27701",
     success: function (json) {
 
-        var leg = json.results[0];
+        var leg1 = json.results[0];
+        var leg2 = json.results[1];
+        var leg3 = json.results[2];
+
         if (leg.title === "Rep") {
             office = "House Representative"
         } else if (leg.title === "Sen" && leg.state_rank === "senior") {
