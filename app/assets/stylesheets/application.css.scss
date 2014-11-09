@@ -17,8 +17,9 @@
 @import "bourbon";
 
 .profile {
+
   width: 600px;
-  @include margin(null auto null auto);
+  @include margin(25px auto 25px auto);
   font-family: $helvetica;
 
   .header{

@@ -1,8 +1,18 @@
+
 class LocationsController < ApplicationController
+  include HTTParty
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
   def index
     @locations = Location.all
+  end
+
+  def home
+    longitude = -74
+    latitude = 40.71
+    @response = HTTParty.get('https://congress.api.sunlightfoundation.com/legislators/locate',
+                             query: {latitude: latitude, longitude: longitude},
+                             headers: {"X-APIKEY" => "c31f9f2742674a9f8ee4e48183d8378e"})
   end
 
   def show
