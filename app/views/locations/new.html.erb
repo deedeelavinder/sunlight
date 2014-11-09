@@ -7,26 +7,18 @@
   <!--<p>Please enter the location for which you would like to <strong>Find Your 'Lators</strong></p>-->
 
 
-  <%= form_for(@location) do |f| %>
-      <% if @location.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
-
-            <ul>
-              <% @location.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
+  <%= form_tag('/locations/search', method: "get") do |f| %>
+      <% if @error %>
+          <%= @error %>
       <% end %>
 
       <div class="field">
-        <%= f.label "Enter an Address:" %><br>
-        <%= f.text_field :address %>
+        <%= label_tag "Enter an Address:" %><br>
+        <%= text_field_tag :address %>
       </div>
 
       <div class="actions">
-        <%= f.submit "Find 'Em" %>
+        <%= submit_tag "Find 'Em" %>
       </div>
   <% end %>
 </div>

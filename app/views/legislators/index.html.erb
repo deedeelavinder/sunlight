@@ -1,3 +1,4 @@
+<% @show_legislators = true %>
 
 <% @legislators.each do |person| %>
 
@@ -39,8 +40,8 @@
         <div class="info">
           <p class="party"><%= party %><p>
           <ul class="dates">
-            <li>Term started:<div class="start_date"><%= person['term_start'] %></div></li>
-            <li>Term ends:<div class="end_term_date"></div>
+            <li>Term started:<div class="start_date"><%= Date.parse(person['term_start']).strftime('%B %-d, %Y') %></div></li>
+            <li>Term ends:<div class="end_term_date"><%= Date.parse(person['term_end']).strftime('%B %-d, %Y') %></div>
             </li>
           </ul>
           <ul class="contacts">
