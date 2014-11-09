@@ -1,6 +1,7 @@
 
 class LocationsController < ApplicationController
   include HTTParty
+  before_action :set_location, only: [:show, :edit, :update, :destroy]
 
   def new
     @location = Location.new

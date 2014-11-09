@@ -2,6 +2,7 @@
 <% @legislators.each do |person| %>
 
     <% picture = "#{person['bioguide_id']}" %>
+
     <% contact_url = "#{person['contact_form']}" %>
     <% phone = "#{person['phone']}" %>
     <% twitter = "#{person['twitter_id']}" %>
@@ -15,11 +16,15 @@
     <% end %>
 
     <% if person['title'] == "Rep" %>
-        <% title = "Representative" %>
+        <% if person['district'] == 0 %>
+          <% title = "Representative from #{person['state_name']}" %>
+        <% else %>
+          <% title = "Representative from #{person['state']} District #{person['district']}" %>
+        <% end %>
     <% elsif person['title'] == "Sen" && person['state_rank'] == "senior" %>
-        <% title = "Senior Senator" %>
+        <% title = "Senior Senator from #{person['state_name']}"%>
     <% elsif person['title'] == "Sen" && person['state_rank'] == "junior" %>
-        <% title = "Junior Senator" %>
+        <% title = "Junior Senator from #{person['state_name']}"    %>
     <% else %>
         <% title = "Delegate" %>
     <% end %>
@@ -56,7 +61,7 @@
             <li>
               <% unless twitter.blank? %>
                   <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>
-                  <a class="twitter_handle" href=https://twitter.com/intent/user?screen_name=<%= twitter %>">
+                  <a class="twitter_handle" href="https://twitter.com/intent/user?screen_name=<%= twitter %>">
                     <i class="fa fa-twitter-square"></i>
                     @<%= twitter %>
                   </a>

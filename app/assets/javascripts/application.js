@@ -58,3 +58,9 @@
 //
 //    }});
 
+$(document).on('ready', function () {
+    $('img').error(function () {
+        $(this).attr('src', 'assets/image_404.jpg');
+    });
+    console.log("worked!");
+});
