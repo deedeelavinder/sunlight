@@ -1,6 +1,12 @@
-<% @response["results"].each do |person| %>
 
-  <% picture = "#{person['bioguide_id']}" %>
+
+
+
+<% @response["results"].each do |person| %>
+    <%= puts 'home' %>
+
+
+    <% picture = "#{person['bioguide_id']}" %>
   <% contact_url = "#{person['contact_form']}" %>
   <% phone = "#{person['phone']}" %>
   <% twitter = "#{person['twitter_id']}" %>
@@ -33,7 +39,7 @@
       <div class="info">
         <p class="party"><%= party %><p>
         <ul class="dates">
-          <li>Term started:<div class="start_date"></div></li>
+          <li>Term started:<div class="start_date"><%= person['term_start'] %></div></li>
           <li>Term ends:<div class="end_term_date"></div>
           </li>
         </ul>
@@ -53,11 +59,13 @@
             </a>
           </li>
           <li>
-            <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>
-              <a class="twitter_handle" href="<a href='https://twitter.com/intent/user?screen_name=<%= twitter %>">
-                <i class="fa fa-twitter-square"></i>
-                @<%= twitter %>
-              </a>
+            <% unless twitter.blank? %>
+              <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>
+                <a class="twitter_handle" href="<a href='https://twitter.com/intent/user?screen_name=<%= twitter %>">
+                  <i class="fa fa-twitter-square"></i>
+                  @<%= twitter %>
+                </a>
+            <% end %>
           </li>
         </ul>
       </div>
