@@ -8,8 +8,8 @@ class LocationsController < ApplicationController
   end
 
   def home
-    longitude = -74
-    latitude = 40.71
+    longitude = -70.863
+    latitude = 42.916
     @response = HTTParty.get('https://congress.api.sunlightfoundation.com/legislators/locate',
                              query: {latitude: latitude, longitude: longitude},
                              headers: {"X-APIKEY" => "c31f9f2742674a9f8ee4e48183d8378e"})
