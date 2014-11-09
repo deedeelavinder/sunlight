@@ -31,13 +31,13 @@ body {
   .title {
     font-size: 25pt;
     float: left;
-    @include padding(10px null 5px 10px);
+    @include padding(10px null 5px 20px);
   }
 
   .link {
     float: right;
-    font-size: 14pt;
-    @include padding(20px 40px 5px null);
+    font-size: 16pt;
+    @include padding(20px 35px 5px null);
 
     a {
       text-decoration: none;

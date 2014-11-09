@@ -16,7 +16,11 @@
     <% end %>
 
     <% if person['title'] == "Rep" %>
-        <% title = "Representative from #{person['state']} District #{person['district']}" %>
+        <% if person['district'] == 0 %>
+          <% title = "Representative from #{person['state_name']}" %>
+        <% else %>
+          <% title = "Representative from #{person['state']} District #{person['district']}" %>
+        <% end %>
     <% elsif person['title'] == "Sen" && person['state_rank'] == "senior" %>
         <% title = "Senior Senator from #{person['state_name']}"%>
     <% elsif person['title'] == "Sen" && person['state_rank'] == "junior" %>
