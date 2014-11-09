@@ -16,6 +16,11 @@
 @import "font-awesome";
 @import "bourbon";
 
+body {
+  background-image: url("polaroid_@2X.png");
+  background-repeat: repeat;
+}
+
 .profile {
 
   width: 600px;
@@ -35,7 +40,8 @@
   }
 
   .content {
-    background-color: #E8DEFF;
+    height: 250px;
+    background-color: #D9EFFA;
     border: solid 2px #ACA2B9;
     border-bottom: solid 1px #000;
     border-right: solid 1px #000;
@@ -51,7 +57,7 @@
     }
 
     h2 {
-      @include margin(4px null 0 null);
+      @include margin(10px null 0 null);
       color: #BD0000;
     }
 
