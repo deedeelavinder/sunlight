@@ -19,6 +19,37 @@
 body {
   background-image: url("polaroid_@2X.png");
   background-repeat: repeat;
+  font-family: $helvetica;
+}
+
+#search {
+  height: 180px;
+}
+
+.field {
+  margin-top: 10px;
+  font-size: 22pt;
+
+  input {
+    margin-top: 6px;
+    font-size: 16pt;
+    width: 500px;
+    height: 40px;
+  }
+}
+
+.actions {
+
+  input {
+    width: 200px;
+    height: 45px;
+    background-color: #BD0000;
+    border: solid 3px #920000;
+    color: #FFF;
+    font-family: $helvetica;
+    font-size: 16pt;
+    @include margin(10px null null null);
+  }
 }
 
 .nav {
@@ -55,7 +86,6 @@ body {
 
   width: 600px;
   @include margin(25px auto 25px auto);
-  font-family: $helvetica;
 
   .header{
     height: 40px;

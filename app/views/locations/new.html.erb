@@ -1,33 +1,36 @@
-<h1>Welcome to <strong>Find Your 'Lators</strong></h1>
+<div class="profile">
+  <div class="content" id="search">
+  <!--<h1>Welcome to <strong>Find Your 'Lators</strong></h1>-->
 
-# explanation of the site, what it does, how they can use it
+  <!--# explanation of the site, what it does, how they can use it-->
 
-<p>Please enter the location for which you would like to <strong>Find Your 'Lators</strong></p>
+  <!--<p>Please enter the location for which you would like to <strong>Find Your 'Lators</strong></p>-->
 
 
-<%= form_for(@location) do |f| %>
-    <% if @location.errors.any? %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
+  <%= form_for(@location) do |f| %>
+      <% if @location.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@location.errors.count, "error") %> prohibited this location from being saved:</h2>
 
-          <ul>
-            <% @location.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
+            <ul>
+              <% @location.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
 
-    <div class="field">
-      <%= f.label :address %><br>
-      <%= f.text_field :address %>
-    </div>
+      <div class="field">
+        <%= f.label "Enter an Address:" %><br>
+        <%= f.text_field :address %>
+      </div>
 
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-<% end %>
-
+      <div class="actions">
+        <%= f.submit "Find 'Em" %>
+      </div>
+  <% end %>
+</div>
+</div>
 
 
 
