@@ -6,12 +6,14 @@ Rails.application.routes.draw do
     end
   end
   resources :legislators, only: :index
+
+  root 'locations#new'
+
+end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-
-  root 'locations#new'
 
   # Example of regular route:
 
@@ -61,4 +63,4 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-end
+
