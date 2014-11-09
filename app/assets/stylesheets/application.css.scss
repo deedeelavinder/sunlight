@@ -21,6 +21,36 @@ body {
   background-repeat: repeat;
 }
 
+.nav {
+  height: 50px;
+  background-color: #BD0000;
+  border: solid 3px #920000;
+  color: #FFF;
+  font-family: $monospace;
+
+  .title {
+    font-size: 25pt;
+    float: left;
+    @include padding(10px null 5px 10px);
+  }
+
+  .link {
+    float: right;
+    font-size: 14pt;
+    @include padding(20px 40px 5px null);
+
+    a {
+      text-decoration: none;
+      color: #FFF;
+    }
+
+    a:hover{
+      text-decoration: underline;
+    }
+  }
+
+}
+
 .profile {
 
   width: 600px;
@@ -53,7 +83,7 @@ body {
     }
 
     a:hover {
-      color: #FF0000;
+      color: #830000;
     }
 
     h2 {

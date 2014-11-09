@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="nav">
+  <div class="title">find yer 'lators</div>
+  <%# if current_page?(controller: 'locations', action: 'create') %>
+  <div class="link"> <%= link_to "Search a new location", root_path %></div>
+  <%# end %>
+</div>
 <%= yield %>
 
 </body>
