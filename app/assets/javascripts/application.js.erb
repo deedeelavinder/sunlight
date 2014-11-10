@@ -14,8 +14,10 @@
 //= require jquery_ujs
 //= require_tree .
 
-//$(document).on('ready', function () {
-//    $('img').error(function () {
-//        $(this).attr('src', 'image_404.jpg');
-//    });
-//});
+var image_path = '<%= asset_path "image_404-097e0fff6381957de67646aa2eeb9fad.jpg" %>'
+
+$(document).on('ready', function () {
+    $('img').error(function () {
+        $(this).attr(image_path);
+    });
+});
