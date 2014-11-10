@@ -165,6 +165,7 @@ body {
 
       img {
         background-image: url("image_404-097e0fff6381957de67646aa2eeb9fad.jpg");
+        background-repeat: no-repeat;
         border-radius: 75px;
         height: 200px;
         @include margin(10px 45px null 10px);
