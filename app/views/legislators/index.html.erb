@@ -1,8 +1,7 @@
 <% @show_legislators = true %>
 
 <% if @legislators != [] %>
-    <% @legislators.each do |person| %>
-
+    <% @legislators.sort_by{|person| person['party']}.each do |person| %>
         <% picture = "#{person['bioguide_id']}" %>
 
         <% contact_url = "#{person['contact_form']}" %>
