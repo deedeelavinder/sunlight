@@ -1,26 +1,38 @@
+<h1> Welcome to Find Your Legislators!</h2>
+
+
 <div class="profile">
+
+  <div class="header">Here's how it works:</div>
   <div class="content" id="search">
-  <!--<h1>Welcome to <strong>Find Your 'Lators</strong></h1>-->
 
-  <!--# explanation of the site, what it does, how they can use it-->
+  <h2>Let us...</h2>
+  <%= form_tag("/locations/search", method: "get") do %>
+    <%= hidden_field_tag(:address, "use my IP please!!!") %>
 
-  <!--<p>Please enter the location for which you would like to <strong>Find Your 'Lators</strong></p>-->
-
-
-  <%= form_tag('/locations/search', method: "get") do |f| %>
-      <% if @error %>
-          <%= @error %>
-      <% end %>
-
-      <div class="field">
-        <%= label_tag "Enter an Address:" %><br>
-        <%= text_field_tag :address %>
-      </div>
-
-      <div class="actions">
-        <%= submit_tag "Find 'Em" %>
-      </div>
+    <div class="actions">
+      <%= submit_tag "Use Your Location" %>
+    </div>
   <% end %>
+  <h2>Or...</h2>
+
+  <%= form_tag("/locations/search", method: "get") do %>
+    <% if @error %>
+      <%= @error %>
+    <% end %>
+
+    <div class="field">
+      <%= text_field_tag :address, nil, placeholder: "Search by your City or Street Address..." %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag "Search" %>
+    </div>
+  <% end %>
+
+    <h2>...and we will show you the U.S. Congress Legislators from that location.
+      We'll even give you a few easy ways to get in touch with them if you need to be heard.
+    </h2>
 </div>
 </div>
 

@@ -1,80 +1,85 @@
 <% @show_legislators = true %>
 
 <% if @legislators != [] %>
-    <% @legislators.each do |person| %>
+  <% @legislators.each do |person| %>
 
-        <% picture = "#{person['bioguide_id']}" %>
+    <% picture = "#{person['bioguide_id']}" %>
 
-        <% contact_url = "#{person['contact_form']}" %>
-        <% phone = "#{person['phone']}" %>
-        <% twitter = "#{person['twitter_id']}" %>
+    <% contact_url = "#{person['contact_form']}" %>
+    <% phone = "#{person['phone']}" %>
+    <% twitter = "#{person['twitter_id']}" %>
 
-        <% if person['party'] == "R" %>
-            <% party = "Republican" %>
-        <% elsif person['party'] == "D" %>
-            <% party = "Democrat" %>
-        <% else %>
-            <% party = "Independent" %>
-        <% end %>
-
-        <% if person['title'] == "Rep" %>
-            <% if person['district'] == 0 %>
-              <% title = "Representative from #{person['state_name']}" %>
-            <% else %>
-              <% title = "Representative from #{person['state']} District #{person['district']}" %>
-            <% end %>
-        <% elsif person['title'] == "Sen" && person['state_rank'] == "senior" %>
-            <% title = "Senior Senator from #{person['state_name']}"%>
-        <% elsif person['title'] == "Sen" && person['state_rank'] == "junior" %>
-            <% title = "Junior Senator from #{person['state_name']}"    %>
-        <% else %>
-            <% title = "Delegate" %>
-        <% end %>
-
-        <div class="profile">
-          <div class="header"><%= title %></div>
-          <div class="content">
-            <div class="photo">
-              <img src="http://theunitedstates.io/images/congress/225x275/<%= picture %>.jpg">
-            </div>
-            <h2><%= "#{person['first_name']} #{person['last_name']}" %></h2>
-            <div class="info">
-              <p class="party"><%= party %><p>
-              <ul class="dates">
-                <div class="start_date"><li>Term started: <%= Date.parse(person['term_start']).strftime('%B %-d, %Y') %></li></div>
-                <div class="end_term_date"><li>Term ends: <%= Date.parse(person['term_end']).strftime('%B %-d, %Y') %></li></div>
-              </ul>
-              <ul class="contacts">
-                <li>
-                  <div class="phone_number">
-                    <a href="tel:+<%= phone %>">
-                      <i class="fa fa-phone-square"></i>
-                      <%= phone %>
-                    </a>
-                  </div>
-                </li>
-                <li>
-                  <a class= "message" href=<%= contact_url %>>
-                    <i class="fa fa-envelope-square"></i>
-                    Send a Message
-                  </a>
-                </li>
-                <li>
-                  <% unless twitter.blank? %>
-                      <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>
-                      <a class="twitter_handle" href="https://twitter.com/intent/user?screen_name=<%= twitter %>">
-                        <i class="fa fa-twitter-square"></i>
-                        @<%= twitter %>
-                      </a>
-                  <% end %>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
+    <% if person['party'] == "R" %>
+      <% party = "Republican" %>
+    <% elsif person['party'] == "D" %>
+      <% party = "Democrat" %>
+    <% else %>
+      <% party = "Independent" %>
     <% end %>
+
+    <% if person['title'] == "Rep" %>
+      <% if person['district'] == 0 %>
+        <% title = "Representative from #{person['state_name']}" %>
+      <% else %>
+        <% title = "Representative from #{person['state']} District #{person['district']}" %>
+      <% end %>
+    <% elsif person['title'] == "Sen" && person['state_rank'] == "senior" %>
+      <% title = "Senior Senator from #{person['state_name']}"%>
+    <% elsif person['title'] == "Sen" && person['state_rank'] == "junior" %>
+      <% title = "Junior Senator from #{person['state_name']}"    %>
+    <% else %>
+      <% title = "Delegate" %>
+    <% end %>
+
+    <div class="profile">
+      <div class="header"><%= title %></div>
+      <div class="content">
+        <div class="photo">
+          <img src="http://theunitedstates.io/images/congress/225x275/<%= picture %>.jpg">
+        </div>
+        <h2><%= "#{person['first_name']} #{person['last_name']}" %></h2>
+        <div class="info">
+          <p class="party"><%= party %><p>
+          <ul class="dates">
+            <div class="start_date"><li>Term started: <%= Date.parse(person['term_start']).strftime('%B %-d, %Y') %></li></div>
+            <div class="end_term_date"><li>Term ends: <%= Date.parse(person['term_end']).strftime('%B %-d, %Y') %></li></div>
+          </ul>
+          <ul class="contacts">
+            <li>
+              <div class="phone_number">
+                <a href="tel:+<%= phone %>">
+                  <i class="fa fa-phone-square"></i>
+                  <%= phone %>
+                </a>
+              </div>
+            </li>
+            <li>
+              <a class= "message" href=<%= contact_url %>>
+                <i class="fa fa-envelope-square"></i>
+                Send a Message
+              </a>
+            </li>
+            <li>
+              <% unless twitter.blank? %>
+                <script type="text/javascript" async src="//platform.twitter.com/widgets.js"></script>
+                <a class="twitter_handle" href="https://twitter.com/intent/user?screen_name=<%= twitter %>">
+                  <i class="fa fa-twitter-square"></i>
+                  @<%= twitter %>
+                </a>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  <% end %>
 <% else %>
-    <p>The address you selected is not represented by U.S. Federal Legislators.</p>
-    <%= link_to "Try another address", root_path %>
+
+<div class="profile">
+  <div class="header">Error!</div>
+  <div class="content" id="error">
+    <h2>The location you selected is not represented by any U.S. Federal Legislators.</h2>
+    <h2 id="home_link"><%= link_to "Click here to try a different location.", root_path %></h2>
+  </div>
+</div>
 <% end %>
