@@ -9,6 +9,8 @@ used comes from the Sunlight Foundation API, all of which is open for educationa
 This is a very early version completed for a weekend homework assignment and deployed to Heroku
 that has some issues to iron out, but works as planned.
 
+Try it live https://cryptic-garden-7968.herokuapp.com/
+
 
 
 
