@@ -5,7 +5,6 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
-  resources :legislators, only: :index
 
   root 'locations#new'
 

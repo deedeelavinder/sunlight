@@ -17,13 +17,39 @@
 @import "bourbon";
 
 body {
-  background-image: url("polaroid_@2X.png");
+  background-image: url("polaroid_@2X-eca56c8eaa2853cf01e3c44af294aea1.png");
   background-repeat: repeat;
   font-family: $helvetica;
+
+  h1 {
+    text-align: center;
+    color: #BD0000;
+    font-size: 40pt;
+  }
+
+  .try_again {
+    float: right;
+
+    .fa-hand-o-up {
+      font-size: 40pt;
+    }
+
+    h4{
+      @include padding(0 30px null null);
+    }
+  }
+}
+
+#home_link {
+  text-decoration: underline;
 }
 
 #search {
-  height: 180px;
+  height: 400px;
+}
+
+#error {
+  height: 125px;
 }
 
 .field {
@@ -49,6 +75,10 @@ body {
     font-family: $helvetica;
     font-size: 16pt;
     @include margin(10px null null null);
+  }
+
+  input:hover {
+    background-color: #920000;
   }
 }
 
