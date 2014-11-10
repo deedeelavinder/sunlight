@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree ../app/assets/
+//= require_tree .
 
 $(document).on('ready', function () {
     $('img').error(function () {
-        $(this).attr('src', 'image_404-097e0fff6381957de67646aa2eeb9fad.jpg');
+        $(this).attr('src', 'assets/image_404.jpg');
     });
 });
