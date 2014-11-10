@@ -16,6 +16,6 @@
 
 $(document).on('ready', function () {
     $('img').error(function () {
-        $(this).attr('src', 'assets/image_404.jpg');
+        $(this).attr('src', 'image_404.jpg');
     });
 });
