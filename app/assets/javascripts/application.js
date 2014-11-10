@@ -17,7 +17,7 @@
 
 $(document).on('ready', function () {
     $('img').error(function () {
-        $(this).attr('src', 'assets/image_404.jpg');
+        $(this).attr('src', 'assets/image_404-097e0fff6381957de67646aa2eeb9fad.jpg');
     });
     console.log("worked!");
 });
